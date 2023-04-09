@@ -1,5 +1,59 @@
-#include<bits/stdc++.h> 
+#include<bits/stdc++.h>
+#include <windows.h>
+#include <conio.h>
+#define int long long 
 using namespace std;
-int main(){
+char op;
+void print_story(){
+	printf("这是一个古老的王国，\n");
+	Sleep(2000);
+	printf("你已经沉睡了439年，\n");
+	Sleep(2000);
+	printf("今年是公元4039年，\n");
+	Sleep(2000);
+	printf("你作为失去空灵曈的落魄风神，\n");
+	Sleep(2000);
+	printf("你还要放任这个逐渐崩坏的世界，继续沉睡吗？\n");
+	Sleep(2000);
+	printf("Y or N\n");
+	cin >> op;
+	if(op=='Y') exit(0);
+	system("CLS");
+}
+
+signed main(){
+	printf("《");
+	Sleep(150);
+	printf("风");
+	Sleep(150);
+	printf("之");
+	Sleep(150);
+	printf("起");
+	Sleep(150);
+	printf("源");
+	Sleep(1000);
+	printf("·");
+	Sleep(300);
+	printf("苇");
+	Sleep(150);
+	printf("海");
+	Sleep(150);
+	printf("信");
+	Sleep(150);
+	printf("标");
+	Sleep(150);
+	printf("》");
+	Sleep(2000);
+	system("CLS");
 	
+	printf("是否查看背景故事？\n Y or N\n");
+	cin >> op;
+	if(op=='Y'){
+		system("CLS");
+		print_story();
+	} 
+	else cout << 114514;
+//	Sleep(300);
+	
+	return 0;
 }
