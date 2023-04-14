@@ -1,0 +1,36 @@
+
+struct missle{
+	char icon;
+	int x,y;
+	int damage;
+};
+void mfly_mon(player t,missle u){
+	while(u.x!=t.x|| u.y!=t.y){
+		if(u.x>t.x){
+			u.icon='v';
+			u.x--;
+			if(u.y>t.y) u.y--;
+			else if(u.y<t.y) u.y++;
+		} 
+		else if(u.x<t.x){
+			u.icon='^';
+			u.x--;
+			if(u.y>t.y) u.y--;
+			else if(u.y<t.y) u.y++;
+		}
+		else{
+			if(u.y>t.y){
+				u.y--;
+				u.icon='<';
+			}
+			else if(u.y<t.y){
+				u.y++;
+				u.icon='>';
+			}
+		}
+		Sleep(300);
+	}
+	if(!die(t,u.damage)) hurt(t,u.damage);
+	else kill(d); 
+	
+}
