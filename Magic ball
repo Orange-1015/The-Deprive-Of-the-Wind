@@ -1,1 +1,32 @@
 
+struct ball{
+	char icon='o';
+	int x,y;
+	int damage;
+};
+void bfly_mon(player t,ball u){
+	while(u.x!=t.x|| u.y!=t.y){
+		if(u.x>t.x){
+			u.x--;
+			if(u.y>t.y) u.y--;
+			else if(u.y<t.y) u.y++;
+		} 
+		else if(u.x<t.x){
+			u.x--;
+			if(u.y>t.y) u.y--;
+			else if(u.y<t.y) u.y++;
+		}
+		else{
+			if(u.y>t.y){
+				u.y--;
+			}
+			else if(u.y<t.y){
+				u.y++;
+			}
+		}
+		Sleep(300);
+	}
+	if(!die(t,u.damage)) hurt(t,u.damage);
+	else kill(d); 
+	
+}
