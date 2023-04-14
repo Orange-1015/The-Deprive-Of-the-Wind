@@ -1,0 +1,90 @@
+
+int nowchr=0;
+bool character_release[20]; // all false
+char character[20]={'@','C','M','I','P'};	//icon of characters
+// wind_god,Chesela,Monunent,Isasha,Phantom
+struct charac{
+//	char icon;
+//	int chrac_num;
+	bool e_rel,q_rel;
+	int a_hurt,e_hurt,q_hurt;
+	int akind,ekind,qkind;
+	int a_range,e_range,q_range;
+}chr[20];
+
+
+
+struct player{
+	int x,y,chrac_num;
+}pl;
+
+void rel_a(){
+	if(chr[nowchr].akind=='0'){
+		rangeHurt(pl.x,pl.y,chr[nowchr].a_range);
+	}
+	else if(chr[nowchr].akind=='1'){
+		mfly_ply(getmonster(),chr[nowchr].a_hurt);
+	}
+	else if(chr[nowchr].akind='2'){
+		bfly_ply(getmonster(),chr[nowchr].a_hurt);
+	}
+}
+
+void rel_e(){
+	if(!chr[nowchr].e_rel) return;
+	if(chr[nowchr].ekind=='0'){
+		rangeHurt(pl.x,pl.y,chr[nowchr].e_range);
+	}
+	else if(chr[nowchr].ekind=='1'){
+		mfly_ply(getmonster(),chr[nowchr].e_hurt);
+	}
+	else if(chr[nowchr].ekind='2'){
+		bfly_ply(getmonster(),chr[nowchr].e_hurt);
+	}
+}
+void rel_q(){
+	if(!chr[nowchr].q_rel) return;
+	if(chr[nowchr].qkind=='0'){
+		rangeHurt(pl.x,pl.y,chr[nowchr].q_range);
+	}
+	else if(chr[nowchr].qkind=='1'){
+		mfly_ply(getmonster(),chr[nowchr].q_hurt);
+	}
+	else if(chr[nowchr].qkind='2'){
+		bfly_ply(getmonster(),chr[nowchr].q_hurt);
+	}
+}
+
+void player_move(){
+	char c;
+	int dx=0,dy=0;
+	Sleep(5);
+	while(kbhit()){
+		c=getch();
+		if(c=='w'||c=='W'){
+			dx=1;
+			dy=0;
+		}
+		else if(c=='a'||c=='A'){
+			dx=0;
+			dy=-1;
+		}
+		else if(c=='s'||c=='S'){
+			dx=-1;
+			dy=0;
+		}
+		else if(c=='d'||c=='D'){
+			dx=0;
+			dy=1;
+		}
+		else if(c=='e'||c=='E'){
+			rel_e();
+		}
+		else if(c=='q'||c=='q'){
+			rel_q();
+		}
+		else if(c==' '){
+			rel_a();
+		}
+	}
+}
