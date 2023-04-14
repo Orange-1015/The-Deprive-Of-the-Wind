@@ -1,4 +1,5 @@
 
+
 struct ball{
 	char icon='o';
 	int x,y;
@@ -6,27 +7,12 @@ struct ball{
 };
 void bfly_mon(player t,ball u){
 	while(u.x!=t.x|| u.y!=t.y){
-		if(u.x>t.x){
-			u.x--;
-			if(u.y>t.y) u.y--;
-			else if(u.y<t.y) u.y++;
-		} 
-		else if(u.x<t.x){
-			u.x--;
-			if(u.y>t.y) u.y--;
-			else if(u.y<t.y) u.y++;
-		}
-		else{
-			if(u.y>t.y){
-				u.y--;
-			}
-			else if(u.y<t.y){
-				u.y++;
-			}
-		}
-		Sleep(300);
+		int dx=rand()%3-1,dy=rand()%3-1;
+		if(dx==0 && dy==0) dx++;
+		u.x+=dx;
+		u.y+=dy;
+		Sleep(1000);
 	}
 	if(!die(t,u.damage)) hurt(t,u.damage);
-	else kill(d); 
-	
+	else kill(d);
 }
